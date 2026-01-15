@@ -1,17 +1,20 @@
-import streamlit as st
-import os
-import hashlib
-import chromadb
-import google.generativeai as genai
+import streamlit as st # interfaz web
+import os # manejo de archivos y variables de entorno
+import hashlib # hash del pdf para detectar cambios
+import chromadb # base de datos vectorial
+import google.generativeai as genai # cliente de Gemini
 
-from pypdf import PdfReader
-from sentence_transformers import SentenceTransformer
-from dotenv import load_dotenv
+from pypdf import PdfReader # extracción de texto de PDFs
+from sentence_transformers import SentenceTransformer # libreria de texto plano a embeddings
+from dotenv import load_dotenv # carga variables de entorno desde .env
 
+import csv # manejo de archivos csv
+import chardet # detección de codificación de archivos
+import io # manejo de flujos de datos en memoria
 # ============================================================
 # CONFIGURACIÓN GENERAL
 # ============================================================
-st.set_page_config(page_title="Chat PDF con Gemini")
+st.set_page_config(page_title="Chat PDF y CSV con Gemini")
 
 # Carga variables de entorno desde .env
 # Aquí se espera GOOGLE_API_KEY=xxxx
@@ -32,11 +35,21 @@ client = chromadb.Client()
 if "collection" not in st.session_state:
     st.session_state.collection = None
 
+if "collection_csv" not in st.session_state:
+    st.session_state.collection_csv = None
+
 if "pdf_processed" not in st.session_state:
     st.session_state.pdf_processed = False
 
+if "csv_processed" not in st.session_state:
+    st.session_state.csv_processed = False
+
 if "pdf_hash" not in st.session_state:
     st.session_state.pdf_hash = None
+
+if "csv_hash" not in st.session_state:
+    st.session_state.csv_hash = None
+
 
 # ============================================================
 # FUNCIONES
@@ -56,6 +69,45 @@ def extract_text_from_pdf(pdf_file):
         content = page.extract_text()
         if content:
             text += f"\n[Página {i+1}]\n{content}"
+
+    return text
+
+def extraxt_text_from_csv(file):
+    """
+    Extraer texto de un archivo CSV.
+    Cada registro se convierte en una línea de texto identificada por su número de fila.
+
+    Devuelve:
+        Texto completo extraído del CSV.
+
+    """
+    text = ""
+    #Leer el archivo CSV
+    raw_data = file.read()
+
+    # Revisar la codificación del archivo
+    enconding_result = chardet.detect(raw_data)
+    enconding = enconding_result['encoding']
+    # Decodificar el contenido
+    decoded_content = raw_data.decode(enconding)
+    #Convertir el texto en archivo virtual
+    string_io = io.StringIO(decoded_content)
+
+    # 5. Detectar el dialecto (separador, comillas, etc.)
+    try:
+        dialect = csv.Sniffer().sniff(string_io.read(1024))
+    except Exception:
+        # En caso de que falle el sniffer, usamos una coma por defecto
+        dialect = 'excel' 
+    
+    string_io.seek(0) # Volver al inicio del archivo virtual
+
+    #  Leer el contenido
+    reader = csv.reader(string_io, dialect=dialect)
+    text = ""
+    for i, row in enumerate(reader):
+        line = ' '.join(str(r) for r in row)
+        text += f"Fila {i+1}: {line}\n"
 
     return text
 
@@ -203,6 +255,85 @@ def create_chroma_collection(chunks):
     # - devolver chunks relevantes
     return collection
 
+def create_chroma_collection_csv(chunks):
+    """
+    Crea una colección nueva en ChromaDB a partir de los chunks generados.
+
+    Cada chunk se almacena junto con:
+    - su embedding (vector numérico)
+    - su texto original
+    - metadata útil
+    """
+
+    # ------------------------------
+    # 1️⃣ Borrado defensivo
+    # ------------------------------
+    # Si ya existe una colección con el mismo nombre ("csv_rag"),
+    try:
+        client.delete_collection("csv_rag")
+    except:
+        # Si la colección no existe, Chroma lanza error.
+        # Lo ignoramos porque es un caso esperado.
+        pass
+
+    # ------------------------------
+    # 2️⃣ Crear colección nueva
+    # ------------------------------
+    # Aquí Chroma crea:
+    # - una tabla de documentos
+    # - un índice vectorial
+    # - espacio para metadatos
+    collection = client.create_collection(name="csv_rag")
+
+    # ------------------------------
+    # 3️⃣ Separar texto de metadata
+    # ------------------------------
+    # Extraemos SOLO el contenido textual de cada chunk.
+    # Esto es lo que se convertirá en embeddings.
+    texts = [c["content"] for c in chunks]
+
+    # ------------------------------
+    # 4️⃣ Generar embeddings
+    # ------------------------------
+    # El modelo de SentenceTransformers convierte cada texto
+    # en un vector numérico.
+    #
+    # Cada vector representa el significado del chunk.
+    embeddings = EMBEDDING_MODEL.encode(texts)
+
+    # ------------------------------
+    # 5️⃣ Insertar datos en Chroma
+    # ------------------------------
+    collection.add(
+        # Texto original del chunk
+        documents=texts,
+
+        # Vectores que permiten búsqueda semántica
+        embeddings=embeddings.tolist(),
+
+        # IDs únicos
+        # Sirven para identificar cada chunk internamente
+        ids=[c["id"] for c in chunks],
+
+        # Metadata asociada a cada chunk
+        metadatas=[
+            {
+                "chunk_index": i,         # Orden del chunk
+                "start_index": c["start_index"],  # Posición en el texto original
+                "chunk_size": c["size"]   # Tamaño real del fragmento
+            }
+            for i, c in enumerate(chunks)
+        ]
+    )
+
+    # ------------------------------
+    # 6️⃣ Devolver colección lista
+    # ------------------------------
+    # La colección ya puede:
+    # - recibir queries (preguntas)
+    # - devolver chunks relevantes
+    return collection
+
 
 
 def retrieve_context(collection, query, k=4):
@@ -245,9 +376,10 @@ Pregunta:
 # INTERFAZ
 # ============================================================
 
-st.title("📄 Chat con PDF + ChromaDB + Gemini")
+st.title("📄 Chat con PDF y CSV + ChromaDB + Gemini")
 
 uploaded_pdf = st.file_uploader("Sube un PDF", type="pdf")
+uploaded_csv = st.file_uploader("Sube un CSV", type="csv")
 
 # 🔄 Detectar cambio de PDF y resetear estado
 if uploaded_pdf:
@@ -257,6 +389,16 @@ if uploaded_pdf:
         st.session_state.pdf_hash = current_hash
         st.session_state.pdf_processed = False
         st.session_state.collection = None
+
+# 🔄 Detectar cambio de CSV y resetear estado
+if uploaded_csv:
+    current_hash = hash_pdf(uploaded_csv)
+
+    if st.session_state.csv_hash != current_hash:
+        st.session_state.csv_hash = current_hash
+        st.session_state.csv_processed = False
+        st.session_state.collection_csv = None
+
 
 # ------------------------------
 # BOTÓN PROCESAR PDF
@@ -272,17 +414,67 @@ if uploaded_pdf and not st.session_state.pdf_processed:
         st.success(f"PDF procesado ✅ ({len(chunks)} fragmentos)")
 
 # ------------------------------
+# BOTÓN PROCESAR CSV
+# ------------------------------
+if uploaded_csv and not st.session_state.csv_processed:
+    if st.button("📥 Procesar CSV"):
+        with st.spinner("Procesando CSV..."):
+            text = extraxt_text_from_csv(uploaded_csv)
+            chunks = chunk_text(text)
+            st.session_state.collection_csv = create_chroma_collection_csv(chunks)
+            st.session_state.csv_processed = True
+
+        st.success(f"CSV procesado ✅ ({len(chunks)} fragmentos)")
+
+# ------------------------------
 # SECCIÓN DE PREGUNTAS
 # ------------------------------
 if st.session_state.pdf_processed and st.session_state.collection:
     st.divider()
     st.subheader("❓ Pregunta al documento")
 
-    question = st.text_input("Escribe tu pregunta")
+    question = st.text_input("Escribe tu pregunta",key="pdf_query")
 
-    if st.button("🤖 Preguntar") and question:
+    if st.button("🤖 Preguntar",key="pdf_btn") and question:
         with st.spinner("Buscando respuesta..."):
             results = retrieve_context(st.session_state.collection, question)
+
+            # Unimos los documentos para Gemini
+            context_text = "\n\n".join(results["documents"][0])
+
+            answer = ask_gemini(context_text, question)
+
+        st.subheader("🤖 Respuesta")
+        st.write(answer)
+
+        # ------------------------------
+        # DETALLE DEL CONTEXTO USADO
+        # ------------------------------
+        with st.expander("📚 Contexto usado (detallado)"):
+            for i, (doc, meta) in enumerate(
+                zip(results["documents"][0], results["metadatas"][0])
+            ):
+                st.markdown(f"""
+**Chunk #{meta['chunk_index']}**
+- 📍 Inicio en texto: `{meta['start_index']}`
+- 📏 Tamaño: `{meta['chunk_size']}` caracteres
+
+```text
+{doc}
+""")
+                
+# ------------------------------
+# SECCIÓN DE PREGUNTAS CSV
+# ------------------------------
+if st.session_state.csv_processed and st.session_state.collection_csv:
+    st.divider()
+    st.subheader("❓ Pregunta al documento")
+
+    question = st.text_input("Escribe tu pregunta",key="csv_query")
+
+    if st.button("🤖 Preguntar",key="csv_btn") and question:
+        with st.spinner("Buscando respuesta..."):
+            results = retrieve_context(st.session_state.collection_csv, question)
 
             # Unimos los documentos para Gemini
             context_text = "\n\n".join(results["documents"][0])

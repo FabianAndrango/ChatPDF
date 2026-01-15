@@ -1,0 +1,385 @@
+GOBIERNO;MES;YEAR;COSTO_CANASTA;INGRESO_FAMILIAR_MENSUAL;RESTRICCION_O_EXCEDENTE_EN_EL_CONSUMO;RESTRICCION_EXCENDENTE_PORCENTUAL
+Roldos-Hurtado;Noviembre;1982;401,57;401,58;-0,02;0
+Roldos-Hurtado;Julio;1983;358,84;301,57;57,28;0,1596
+Leon Febres Cordero;Enero;1984;197,3;174,36;22,94;0,1163
+Leon Febres Cordero;Marzo;1985;189,9;172,36;17,54;0,0924
+Leon Febres Cordero;Enero;1986;203,58;186,99;16,59;0,0815
+Leon Febres Cordero;Agosto;1986;183,53;170,32;13,21;0,072
+Leon Febres Cordero;Julio;1987;195,4;170,63;24,77;0,1268
+Leon Febres Cordero;Junio;1988;128,26;91,12;37,14;0,2896
+Rodrigo Borja;Septiembre;1988;135,56;91,04;44,52;0,3284
+Rodrigo Borja;Mayo;1989;196,65;109,18;87,47;0,4448
+Rodrigo Borja;Noviembre;1989;188,37;104,89;83,48;0,4432
+Rodrigo Borja;Octubre;1990;200,61;94,41;106,2;0,5294
+Rodrigo Borja;Noviembre;1990;205,12;93,32;111,8;0,545
+Rodrigo Borja;Diciembre;1990;209,62;92,93;116,69;0,5567
+Rodrigo Borja;Enero;1991;206,8;100,78;106,01;0,5126
+Rodrigo Borja;Febrero;1991;205,9;118,17;87,73;0,4261
+Rodrigo Borja;Marzo;1991;205,74;92,96;112,78;0,5482
+Rodrigo Borja;Abril;1991;207,09;90,91;116,18;0,561
+Rodrigo Borja;Mayo;1991;200,89;84,7;116,19;0,5784
+Rodrigo Borja;Junio;1991;205,77;84,12;121,65;0,5912
+Rodrigo Borja;Julio;1991;210,88;84,17;126,72;0,6009
+Rodrigo Borja;Agosto;1991;217,57;84,75;132,82;0,6105
+Rodrigo Borja;Septiembre;1991;222,79;83,7;139,09;0,6243
+Rodrigo Borja;Octubre;1991;222,29;91,05;131,24;0,5904
+Rodrigo Borja;Noviembre;1991;221;88,43;132,57;0,5999
+Rodrigo Borja;Diciembre;1991;214,9;82,24;132,66;0,6173
+Rodrigo Borja;Enero;1992;216,95;90,65;126,29;0,5821
+Rodrigo Borja;Febrero;1992;223,05;90,02;133,03;0,5964
+Rodrigo Borja;Marzo;1992;230,67;90,25;140,42;0,6087
+Rodrigo Borja;Abril;1992;235,29;87,46;147,83;0,6283
+Rodrigo Borja;Mayo;1992;232,91;83,36;149,55;0,6421
+Rodrigo Borja;Junio;1992;235,46;81,28;154,19;0,6548
+Rodrigo Borja;Julio;1992;236,66;79,14;157,52;0,6656
+Sixto Duran Ballen;Agosto;1992;223,95;73,52;150,43;0,6717
+Sixto Duran Ballen;Junio;1993;292,22;129,24;162,98;0,5577
+Sixto Duran Ballen;Julio;1993;294,14;145,93;148,21;0,5039
+Sixto Duran Ballen;Agosto;1993;295,73;144,48;151,25;0,5114
+Sixto Duran Ballen;Septiembre;1993;301,73;144,95;156,79;0,5196
+Sixto Duran Ballen;Octubre;1993;309,87;147,64;162,23;0,5235
+Sixto Duran Ballen;Noviembre;1993;310;145,44;164,57;0,5309
+Sixto Duran Ballen;Diciembre;1993;306,71;142,78;163,93;0,5345
+Sixto Duran Ballen;Enero;1994;315,97;162,89;153,08;0,4845
+Sixto Duran Ballen;Febrero;1994;328,45;163,95;164,5;0,5008
+Sixto Duran Ballen;Marzo;1994;330,87;159,88;170,99;0,5168
+Sixto Duran Ballen;Abril;1994;333,13;156,93;176,2;0,5289
+Sixto Duran Ballen;Mayo;1994;337,14;156,27;180,87;0,5365
+Sixto Duran Ballen;Junio;1994;341,39;155,51;185,88;0,5445
+Sixto Duran Ballen;Julio;1994;342,9;196,18;146,72;0,4279
+Sixto Duran Ballen;Agosto;1994;341,44;192,52;148,92;0,4362
+Sixto Duran Ballen;Septiembre;1994;343,64;190,67;152,96;0,4451
+Sixto Duran Ballen;Octubre;1994;347,35;189,31;158,05;0,455
+Sixto Duran Ballen;Noviembre;1994;350,48;187,3;163,18;0,4656
+Sixto Duran Ballen;Diciembre;1994;361,73;187,66;174,07;0,4812
+Sixto Duran Ballen;Enero;1995;365,63;227,16;138,47;0,3787
+Sixto Duran Ballen;Febrero;1995;372,64;226,75;145,89;0,3915
+Sixto Duran Ballen;Marzo;1995;371,09;226,75;144,34;0,389
+Sixto Duran Ballen;Abril;1995;373,15;226,75;146,4;0,3923
+Sixto Duran Ballen;Mayo;1995;376,02;226,75;149,28;0,397
+Sixto Duran Ballen;Junio;1995;370,93;226,75;144,18;0,3887
+Sixto Duran Ballen;Julio;1995;369,54;222,09;147,45;0,399
+Sixto Duran Ballen;Agosto;1995;371,73;222,09;149,64;0,4026
+Sixto Duran Ballen;Septiembre;1995;378,17;222,93;155,24;0,4105
+Sixto Duran Ballen;Octubre;1995;380,39;222,93;157,46;0,4139
+Sixto Duran Ballen;Noviembre;1995;369,53;222,93;146,6;0,3967
+Sixto Duran Ballen;Diciembre;1995;361,22;222,93;138,3;0,3829
+Sixto Duran Ballen;Enero;1996;370,63;249,88;120,75;0,3258
+Sixto Duran Ballen;Febrero;1996;377,21;249,88;127,33;0,3376
+Sixto Duran Ballen;Marzo;1996;378,04;249,88;128,16;0,339
+Sixto Duran Ballen;Abril;1996;379,29;249,88;129,41;0,3412
+Sixto Duran Ballen;Mayo;1996;376,99;249,88;127,11;0,3372
+Sixto Duran Ballen;Junio;1996;382,64;249,88;132,76;0,347
+Sixto Duran Ballen;Julio;1996;385,53;260,27;125,27;0,3249
+Abdala Bucaram O.;Agosto;1996;381,91;260,27;121,65;0,3185
+Abdala Bucaram O.;Septiembre;1996;387,97;260,27;127,7;0,3291
+Abdala Bucaram O.;Octubre;1996;394,67;260,27;134,4;0,3405
+Abdala Bucaram O.;Noviembre;1996;390,43;260,27;130,16;0,3334
+Abdala Bucaram O.;Diciembre;1996;376,11;260,27;115,84;0,308
+Abdala Bucaram O.;Enero;1997;387,36;254,58;132,78;0,3428
+Abdala Bucaram O.;Febrero;1997;393,27;254,58;138,7;0,3527
+Fabian Alarcon R.;Marzo;1997;394,9;254,58;140,32;0,3553
+Fabian Alarcon R.;Abril;1997;398,63;254,58;144,05;0,3614
+Fabian Alarcon R.;Mayo;1997;395,63;254,58;141,05;0,3565
+Fabian Alarcon R.;Junio;1997;395,82;254,58;141,24;0,3568
+Fabian Alarcon R.;Julio;1997;399,04;255,54;143,51;0,3596
+Fabian Alarcon R.;Agosto;1997;399,54;255,54;144;0,3604
+Fabian Alarcon R.;Septiembre;1997;402,27;255,54;146,73;0,3648
+Fabian Alarcon R.;Octubre;1997;405,59;255,54;150,05;0,37
+Fabian Alarcon R.;Noviembre;1997;404,54;255,54;149,01;0,3683
+Fabian Alarcon R.;Diciembre;1997;399,71;255,54;144,17;0,3607
+Fabian Alarcon R.;Enero;1998;401,89;249,63;152,26;0,3789
+Fabian Alarcon R.;Febrero;1998;406,17;249,63;156,53;0,3854
+Fabian Alarcon R.;Marzo;1998;404,99;249,63;155,36;0,3836
+Fabian Alarcon R.;Abril;1998;397,17;249,63;147,54;0,3715
+Fabian Alarcon R.;Mayo;1998;389,14;220,52;168,62;0,4333
+Fabian Alarcon R.;Junio;1998;395,62;220,52;175,1;0,4426
+Fabian Alarcon R.;Julio;1998;396,81;237,62;159,19;0,4012
+Jamil Mahuad W.;Agosto;1998;394,08;237,62;156,46;0,397
+Jamil Mahuad W.;Septiembre;1998;377,75;237,62;140,13;0,371
+Jamil Mahuad W.;Octubre;1998;354,56;216,58;137,98;0,3892
+Jamil Mahuad W.;Noviembre;1998;372,88;216,58;156,3;0,4192
+Jamil Mahuad W.;Diciembre;1998;369,92;216,58;153,35;0,4145
+Jamil Mahuad W.;Enero;1999;352,63;218,07;134,56;0,3816
+Jamil Mahuad W.;Febrero;1999;335,43;218,07;117,36;0,3499
+Jamil Mahuad W.;Marzo;1999;273,03;218,07;54,96;0,2013
+Jamil Mahuad W.;Abril;1999;331,25;166,2;165,04;0,4982
+Jamil Mahuad W.;Mayo;1999;352,09;166,2;185,88;0,5279
+Jamil Mahuad W.;Junio;1999;295,59;146,86;148,73;0,5032
+Jamil Mahuad W.;Julio;1999;279,94;152,42;127,53;0,4556
+Jamil Mahuad W.;Agosto;1999;295,63;152,42;143,21;0,4844
+Jamil Mahuad W.;Septiembre;1999;278,22;152,42;125,8;0,4522
+Jamil Mahuad W.;Octubre;1999;224,07;152,42;71,65;0,3198
+Jamil Mahuad W.;Noviembre;1999;213,79;152,42;61,37;0,2871
+Jamil Mahuad W.;Diciembre;1999;219,95;152,42;67,54;0,3071
+Gustavo Noboa B.;Enero;2000;178,75;80,3;98,45;0,5508
+Gustavo Noboa B.;Febrero;2000;196,64;80,3;116,34;0,5916
+Gustavo Noboa B.;Marzo;2000;216,83;80,3;136,53;0,6297
+Gustavo Noboa B.;Abril;2000;245,22;113,72;131,5;0,5363
+Gustavo Noboa B.;Mayo;2000;260,74;116,3;144,44;0,554
+Gustavo Noboa B.;Junio;2000;274,76;164,6;110,2;0,4011
+Gustavo Noboa B.;Julio;2000;226,39;163,57;62,82;0,2775
+Gustavo Noboa B.;Agosto;2000;229,46;163,57;65,9;0,2872
+Gustavo Noboa B.;Septiembre;2000;234,63;163,57;74,68;0,3183
+Gustavo Noboa B.;Octubre;2000;244,17;163,57;80,59;0,3301
+Gustavo Noboa B.;Noviembre;2000;248,1;163,57;84,53;0,3407
+Gustavo Noboa B.;Diciembre;2000;252,93;163,57;89,36;0,3533
+Gustavo Noboa B.;Enero;2001;269,77;200,73;69,04;0,2559
+Gustavo Noboa B.;Febrero;2001;278,02;200,73;77,29;0,278
+Gustavo Noboa B.;Marzo;2001;284,25;200,73;83,52;0,2938
+Gustavo Noboa B.;Abril;2001;288,45;200,73;87,72;0,3041
+Gustavo Noboa B.;Mayo;2001;287,77;200,73;87,04;0,3025
+Gustavo Noboa B.;Junio;2001;288,79;200,73;88,06;0,3049
+Gustavo Noboa B.;Julio;2001;290,66;200,73;89,93;0,3094
+Gustavo Noboa B.;Agosto;2001;292,97;200,73;92,24;0,3148
+Gustavo Noboa B.;Septiembre;2001;299,42;200,73;98,69;0,3296
+Gustavo Noboa B.;Octubre;2001;304,06;200,73;103,33;0,3398
+Gustavo Noboa B.;Noviembre;2001;310,21;200,73;109,48;0,3529
+Gustavo Noboa B.;Diciembre;2001;313,56;200,73;112,83;0,3598
+Gustavo Noboa B.;Enero;2002;319,15;221,26;97,89;0,3067
+Gustavo Noboa B.;Febrero;2002;323,18;221,26;101,92;0,3154
+Gustavo Noboa B.;Marzo;2002;327,34;221,26;106,08;0,3241
+Gustavo Noboa B.;Abril;2002;330,31;221,26;109,05;0,3301
+Gustavo Noboa B.;Mayo;2002;333,32;221,26;112,06;0,3362
+Gustavo Noboa B.;Junio;2002;334,05;221,26;112,79;0,3376
+Gustavo Noboa B.;Julio;2002;336,29;221,26;115,03;0,3421
+Gustavo Noboa B.;Agosto;2002;339,91;221,26;118,65;0,3491
+Gustavo Noboa B.;Septiembre;2002;341,22;221,26;119,96;0,3516
+Gustavo Noboa B.;Octubre;2002;346,14;221,26;124,88;0,3608
+Gustavo Noboa B.;Noviembre;2002;351,47;221,26;130,21;0,3705
+Gustavo Noboa B.;Diciembre;2002;353,24;221,26;131,98;0,3736
+Lucio Gutierrez B.;Enero;2003;361,75;253,17;108,58;0,3002
+Lucio Gutierrez B.;Febrero;2003;362;253,17;108,83;0,3006
+Lucio Gutierrez B.;Marzo;2003;363,79;253,17;110,62;0,3041
+Lucio Gutierrez B.;Abril;2003;366,59;253,17;113,42;0,3094
+Lucio Gutierrez B.;Mayo;2003;368,72;253,17;115,55;0,3134
+Lucio Gutierrez B.;Junio;2003;369,95;253,17;116,78;0,3157
+Lucio Gutierrez B.;Julio;2003;371,11;253,17;117,94;0,3178
+Lucio Gutierrez B.;Agosto;2003;373,8;253,17;120,63;0,3227
+Lucio Gutierrez B.;Septiembre;2003;376,47;253,17;123,3;0,3275
+Lucio Gutierrez B.;Octubre;2003;378,02;253,17;124,85;0,3303
+Lucio Gutierrez B.;Noviembre;2003;378,29;253,17;125,12;0,3308
+Lucio Gutierrez B.;Diciembre;2003;378,34;253,17;125,17;0,3308
+Lucio Gutierrez B.;Enero;2004;381,39;265,95;115,44;0,3027
+Lucio Gutierrez B.;Febrero;2004;384,03;265,95;118,08;0,3075
+Lucio Gutierrez B.;Marzo;2004;385,58;265,95;119,63;0,3103
+Lucio Gutierrez B.;Abril;2004;387,59;265,95;121,64;0,3138
+Lucio Gutierrez B.;Mayo;2004;388,38;265,95;122,43;0,3152
+Lucio Gutierrez B.;Junio;2004;387,76;265,95;121,81;0,3141
+Lucio Gutierrez B.;Julio;2004;386,75;265,95;120,8;0,3123
+Lucio Gutierrez B.;Agosto;2004;388,57;265,95;122,62;0,3156
+Lucio Gutierrez B.;Septiembre;2004;388,98;265,95;123,03;0,3163
+Lucio Gutierrez B.;Octubre;2004;390,21;265,95;124,26;0,3184
+Lucio Gutierrez B.;Noviembre;2004;392,26;265,95;126,31;0,322
+Lucio Gutierrez B.;Diciembre;2004;394,45;265,95;128,5;0,3258
+Lucio Gutierrez B.;Enero;2005;417,57;265,95;151,62;0,3631
+Lucio Gutierrez B.;Febrero;2005;419,51;268,09;151,42;0,3609
+Lucio Gutierrez B.;Marzo;2005;421,47;280;141,47;0,3357
+Lucio Gutierrez B.;Abril;2005;425,12;280;145,12;0,3414
+Alfredo Palacio;Mayo;2005;425,38;280;145,38;0,3418
+Alfredo Palacio;Junio;2005;425,1;280;145,1;0,3413
+Alfredo Palacio;Julio;2005;425,85;280;145,85;0,3425
+Alfredo Palacio;Agosto;2005;425,1;280;145,1;0,3413
+Alfredo Palacio;Septiembre;2005;426,74;280;146,74;0,3439
+Alfredo Palacio;Octubre;2005;432,11;280;152,11;0,352
+Alfredo Palacio;Noviembre;2005;435,77;280;155,77;0,3575
+Alfredo Palacio;Diciembre;2005;437,41;280;157,41;0,3599
+Alfredo Palacio;Enero;2006;440,81;298,67;142,14;0,3225
+Alfredo Palacio;Febrero;2006;442,17;298,67;143,5;0,3245
+Alfredo Palacio;Marzo;2006;446,74;298,67;148,07;0,3314
+Alfredo Palacio;Abril;2006;446,57;298,67;147,9;0,3312
+Alfredo Palacio;Mayo;2006;446,8;298,67;148,13;0,3315
+Alfredo Palacio;Junio;2006;444,95;298,67;146,28;0,3288
+Alfredo Palacio;Julio;2006;445,44;298,67;146,77;0,3295
+Alfredo Palacio;Agosto;2006;447,49;298,67;148,82;0,3326
+Alfredo Palacio;Septiembre;2006;450,83;298,67;152,16;0,3375
+Alfredo Palacio;Octubre;2006;453,2;298,67;154,53;0,341
+Alfredo Palacio;Noviembre;2006;453,31;298,67;154,64;0,3411
+Alfredo Palacio;Diciembre;2006;453,26;298,67;154,59;0,3411
+Rafael Correa;Enero;2007;453,97;317,34;136,63;0,301
+Rafael Correa;Febrero;2007;453,75;317,34;136,41;0,3006
+Rafael Correa;Marzo;2007;454,29;317,34;136,95;0,3015
+Rafael Correa;Abril;2007;455;317,34;137,66;0,3025
+Rafael Correa;Mayo;2007;455,29;317,34;137,95;0,303
+Rafael Correa;Junio;2007;457,79;317,34;140,45;0,3068
+Rafael Correa;Julio;2007;461,75;317,34;144,41;0,3127
+Rafael Correa;Agosto;2007;463;317,34;145,66;0,3146
+Rafael Correa;Septiembre;2007;464,9;317,34;147,56;0,3174
+Rafael Correa;Octubre;2007;467,57;317,34;150,23;0,3213
+Rafael Correa;Noviembre;2007;469,57;317,34;152,23;0,3242
+Rafael Correa;Diciembre;2007;472,74;317,34;155,4;0,3287
+Rafael Correa;Enero;2008;478,82;373,34;105,48;0,2203
+Rafael Correa;Febrero;2008;483,1;373,34;109,76;0,2272
+Rafael Correa;Marzo;2008;488,83;373,34;115,49;0,2363
+Rafael Correa;Abril;2008;495,82;373,34;122,48;0,247
+Rafael Correa;Mayo;2008;503,05;373,34;129,71;0,2578
+Rafael Correa;Junio;2008;506,84;373,34;133,5;0,2634
+Rafael Correa;Julio;2008;507,48;373,34;134,14;0,2643
+Rafael Correa;Agosto;2008;507,84;373,34;134,5;0,2648
+Rafael Correa;Septiembre;2008;509,35;373,34;136,01;0,267
+Rafael Correa;Octubre;2008;507,32;373,34;133,98;0,2641
+Rafael Correa;Noviembre;2008;506,79;373,34;133,45;0,2633
+Rafael Correa;Diciembre;2008;508,94;373,34;135,6;0,2664
+Rafael Correa;Enero;2009;512,03;406,93;105,1;0,2053
+Rafael Correa;Febrero;2009;513,27;406,93;106,34;0,2072
+Rafael Correa;Marzo;2009;519,9;406,93;112,97;0,2173
+Rafael Correa;Abril;2009;522,76;406,93;115,83;0,2216
+Rafael Correa;Mayo;2009;522,75;406,93;115,82;0,2216
+Rafael Correa;Junio;2009;522,38;406,93;115,45;0,221
+Rafael Correa;Julio;2009;521,73;406,93;114,8;0,22
+Rafael Correa;Agosto;2009;519,3;406,93;112,37;0,2164
+Rafael Correa;Septiembre;2009;521,26;406,93;114,33;0,2193
+Rafael Correa;Octubre;2009;522,34;406,93;115,41;0,2209
+Rafael Correa;Noviembre;2009;522,59;406,93;115,66;0,2213
+Rafael Correa;Diciembre;2009;528,9;406,93;121,97;0,2306
+Rafael Correa;Enero;2010;534,33;448;86,33;0,1616
+Rafael Correa;Febrero;2010;535,48;448;87,48;0,1634
+Rafael Correa;Marzo;2010;535,56;448;87,56;0,1635
+Rafael Correa;Abril;2010;539,67;448;91,67;0,1699
+Rafael Correa;Mayo;2010;538,89;448;90,89;0,1687
+Rafael Correa;Junio;2010;538,12;448;90,12;0,1675
+Rafael Correa;Julio;2010;536,93;448;88,93;0,1656
+Rafael Correa;Agosto;2010;538,73;448;90,73;0,1684
+Rafael Correa;Septiembre;2010;539,36;448;91,36;0,1694
+Rafael Correa;Octubre;2010;540,1;448;92,1;0,1705
+Rafael Correa;Noviembre;2010;541,82;448;93,82;0,1732
+Rafael Correa;Diciembre;2010;544,71;448;96,71;0,1775
+Rafael Correa;Enero;2011;548,63;492,8;55,83;0,1018
+Rafael Correa;Febrero;2011;551,24;492,8;58,44;0,106
+Rafael Correa;Marzo;2011;551,87;492,8;59,07;0,107
+Rafael Correa;Abril;2011;555,27;492,8;62,47;0,1125
+Rafael Correa;Mayo;2011;557,44;492,8;64,64;0,116
+Rafael Correa;Junio;2011;556,93;492,8;64,13;0,1151
+Rafael Correa;Julio;2011;559,41;492,8;66,61;0,1191
+Rafael Correa;Agosto;2011;563,75;492,8;70,95;0,1259
+Rafael Correa;Septiembre;2011;567,41;492,8;74,61;0,1315
+Rafael Correa;Octubre;2011;571,08;492,8;78,28;0,1371
+Rafael Correa;Noviembre;2011;572,35;492,8;79,55;0,139
+Rafael Correa;Diciembre;2011;578,04;492,8;85,24;0,1475
+Rafael Correa;Enero;2012;581,21;545,07;36,14;0,0622
+Rafael Correa;Febrero;2012;583,27;545,07;38,2;0,0655
+Rafael Correa;Marzo;2012;587,36;545,07;42,29;0,072
+Rafael Correa;Abril;2012;588,48;545,07;43,41;0,0738
+Rafael Correa;Mayo;2012;584,71;545,07;39,64;0,0678
+Rafael Correa;Junio;2012;586,18;545,07;41,11;0,0701
+Rafael Correa;Julio;2012;585,81;545,07;40,74;0,0695
+Rafael Correa;Agosto;2012;587,86;545,07;42,79;0,0728
+Rafael Correa;Septiembre;2012;594,06;545,07;48,99;0,0825
+Rafael Correa;Octubre;2012;595,44;545,07;50,37;0,0846
+Rafael Correa;Noviembre;2012;596,42;545,07;51,35;0,0861
+Rafael Correa;Diciembre;2012;595,7;545,07;50,63;0,085
+Rafael Correa;Enero;2013;601,61;593,6;8,01;0,0133
+Rafael Correa;Febrero;2013;602,07;593,6;8,47;0,0141
+Rafael Correa;Marzo;2013;604,25;593,6;10,66;0,0176
+Rafael Correa;Abril;2013;605,52;593,6;11,92;0,0197
+Rafael Correa;Mayo;2013;605,92;593,6;12,32;0,0203
+Rafael Correa;Junio;2013;606,29;593,6;12,69;0,0209
+Rafael Correa;Julio;2013;606,48;593,6;12,88;0,0212
+Rafael Correa;Agosto;2013;609,57;593,6;15,97;0,0262
+Rafael Correa;Septiembre;2013;612,05;593,6;18,45;0,0301
+Rafael Correa;Octubre;2013;614,01;593,6;20,41;0,0332
+Rafael Correa;Noviembre;2013;617,54;593,6;23,94;0,0388
+Rafael Correa;Diciembre;2013;620,86;593,6;27,26;0,0439
+Rafael Correa;Enero;2014;628,27;634,67;-6,4;-0,0102
+Rafael Correa;Febrero;2014;628,22;634,67;-6,45;-0,0103
+Rafael Correa;Marzo;2014;632,19;634,67;-2,48;-0,0039
+Rafael Correa;Abril;2014;633,61;634,67;-1,06;-0,0017
+Rafael Correa;Mayo;2014;634,27;634,67;-0,4;-0,0006
+Rafael Correa;Junio;2014;634,67;634,67;0;0
+Rafael Correa;Julio;2014;637;634,67;2,33;0,0037
+Rafael Correa;Agosto;2014;638,06;634,67;3,39;0,0053
+Rafael Correa;Septiembre;2014;641,2;634,67;6,53;0,0102
+Rafael Correa;Octubre;2014;642,85;634,67;8,18;0,0127
+Rafael Correa;Noviembre;2014;644,74;634,67;10,08;0,0156
+Rafael Correa;Diciembre;2014;646,3;634,67;11,63;0,018
+Rafael Correa;Enero**;2015;653,21;660,8;-7,59;-0,0116
+Rafael Correa;Febrero;2015;654,48;660,8;-6,32;-0,0097
+Rafael Correa;Marzo;2015;657,68;660,8;-3,12;-0,0047
+Rafael Correa;Abril;2015;660,85;660,8;0,05;0,0001
+Rafael Correa;Mayo;2015;665,09;660,8;4,29;0,0065
+Rafael Correa;Junio;2015;666,92;660,8;6,12;0,0092
+Rafael Correa;Julio;2015;668,57;660,8;7,77;0,0116
+Rafael Correa;Agosto;2015;668,95;660,8;8,15;0,0122
+Rafael Correa;Septiembre;2015;670,53;660,8;9,73;0,0145
+Rafael Correa;Octubre;2015;669,88;660,8;9,08;0,0136
+Rafael Correa;Noviembre;2015;669,96;660,8;9,16;0,0137
+Rafael Correa;Diciembre;2015;673,21;660,8;12,41;0,0184
+Rafael Correa;Enero;2016;675,93;683,2;-7,28;-0,0108
+Rafael Correa;Febrero;2016;678,61;683,2;-4,59;-0,0068
+Rafael Correa;Marzo;2016;680,7;683,2;-2,5;-0,0037
+Rafael Correa;Abril;2016;683,16;683,2;-0,04;-0,0001
+Rafael Correa;Mayo;2016;686,74;683,2;3,54;0,0052
+Rafael Correa;Junio;2016;688,53;683,2;5,33;0,0077
+Rafael Correa;Julio;2016;688,21;683,2;5,01;0,0073
+Rafael Correa;Agosto;2016;689,1;683,2;5,91;0,0086
+Rafael Correa;Septiembre;2016;691,38;683,2;8,18;0,0118
+Rafael Correa;Octubre;2016;691,88;683,2;8,68;0,0125
+Rafael Correa;Noviembre;2016;692,56;683,2;9,36;0,0135
+Rafael Correa;Diciembre;2016;700,96;683,2;17,76;0,0253
+Rafael Correa;Enero;2017;701,93;700;1,94;0,0028
+Rafael Correa;Febrero;2017;708,52;700;8,52;0,012
+Rafael Correa;Marzo;2017;709,22;700;9,23;0,013
+Rafael Correa;Abril;2017;706,04;700;6,04;0,0086
+Rafael Correa;Mayo;2017;709,18;700;9,18;0,0129
+Lenin Moreno;Junio;2017;707,47;700;7,47;0,0106
+Lenin Moreno;Julio;2017;708,51;700;8,51;0,012
+Lenin Moreno;Agosto;2017;709,25;700;9,26;0,0131
+Lenin Moreno;Septiembre;2017;708,79;700;8,79;0,0124
+Lenin Moreno;Octubre;2017;708,01;700;8,01;0,0113
+Lenin Moreno;Noviembre;2017;706,31;700;6,31;0,0089
+Lenin Moreno;Diciembre;2017;708,98;700;8,98;0,0127
+Lenin Moreno;Enero;2018;712,03;720,53;-8,51;-0,012
+Lenin Moreno;Febrero;2018;710,46;720,53;-10,07;-0,0142
+Lenin Moreno;Marzo;2018;711,13;720,53;-9,4;-0,0132
+Lenin Moreno;Abril;2018;709,74;720,53;-10,8;-0,0152
+Lenin Moreno;Mayo;2018;710,07;720,53;-10,46;-0,0147
+Lenin Moreno;Junio;2018;708,22;720,53;-12,31;-0,0174
+Lenin Moreno;Julio;2018;707,54;720,53;-12,99;-0,0184
+Lenin Moreno;Agosto;2018;710,76;720,53;-9,77;-0,0137
+Lenin Moreno;Septiembre;2018;712,66;720,53;-7,87;-0,011
+Lenin Moreno;Octubre;2018;714,31;720,53;-6,22;-0,0087
+Lenin Moreno;Noviembre;2018;714,67;720,53;-5,86;-0,0082
+Lenin Moreno;Diciembre;2018;715,16;720,53;-5,37;-0,0075
+Lenin Moreno;Enero;2019;719,88;735,47;-15,6;-0,0217
+Lenin Moreno;Febrero;2019;717,79;735,47;-17,69;-0,0246
+Lenin Moreno;Marzo;2019;713,05;735,47;-22,43;-0,0315
+Lenin Moreno;Abril;2019;715,7;735,47;-19,77;-0,0276
+Lenin Moreno;Mayo;2019;715,61;735,47;-19,86;-0,0278
+Lenin Moreno;Junio;2019;715,83;735,47;-19,64;-0,0274
+Lenin Moreno;Julio;2019;715,74;735,47;-19,74;-0,0276
+Lenin Moreno;Agosto;2019;714,47;735,47;-21,01;-0,0294
+Lenin Moreno;Septiembre;2019;713,75;735,47;-21,73;-0,0304
+Lenin Moreno;Octubre;2019;718,18;735,47;-17,29;-0,0241
+Lenin Moreno;Noviembre;2019;715,1;735,47;-20,37;-0,0285
+Lenin Moreno;Diciembre;2019;715,08;735,47;-20,4;-0,0285
+Lenin Moreno;Enero;2020;716,14;746,67;-30,53;-0,0426
+Lenin Moreno;Febrero;2020;713;746,67;-33,68;-0,0472
+Lenin Moreno;Marzo;2020;713,89;746,67;-32,78;-0,0459
+Lenin Moreno;Abril;2020;728,38;746,67;-18,29;-0,0251
+Lenin Moreno;Mayo;2020;724,41;746,67;-22,26;-0,0307
+Lenin Moreno;Junio;2020;719,03;746,67;-27,64;-0,0384
+Lenin Moreno;Julio;2020;713,72;746,67;-32,95;-0,0462
+Lenin Moreno;Agosto;2020;711,33;746,67;-35,34;-0,0497
+Lenin Moreno;Septiembre;2020;711,03;746,67;-35,65;-0,0501
+Lenin Moreno;Octubre;2020;710,74;746,67;-35,94;-0,0506
+Lenin Moreno;Noviembre;2020;711,12;746,67;-35,56;-0,05
+Lenin Moreno;Diciembre;2020;710,08;746,67;-36,59;-0,0515
+Lenin Moreno;Enero;2021;712,11;746,67;-34,56;-0,0485
+Lenin Moreno;Febrero;2021;712,07;746,67;-34,61;-0,0486
+Lenin Moreno;Marzo;2021;711,8;746,67;-34,88;-0,049
+Lenin Moreno;Abril;2021;711,18;746,67;-35,49;-0,0499
+Lenin Moreno;Mayo;2021;710,95;746,67;-35,73;-0,0503
+Guillermo Lasso;Junio;2021;709,4;746,67;-37,28;-0,0526
+Guillermo Lasso;Julio;2021;711,68;746,67;-35;-0,0492
+Guillermo Lasso;Agosto;2021;712,67;746,67;-34;-0,0477
+Guillermo Lasso;Septiembre;2021;712,85;746,67;-33,82;-0,0474
+Guillermo Lasso;Octubre;2021;712,12;746,67;-34,55;-0,0485
+Guillermo Lasso;Noviembre;2021;715,31;746,67;-31,36;-0,0438
+Guillermo Lasso;Diciembre;2021;719,65;746,67;-27,02;-0,0375
+Guillermo Lasso;Enero;2022;724,39;793,33;-68,96;-0,0952
+Guillermo Lasso;Febrero;2022;725,16;793,33;-68,17;-0,094
+Guillermo Lasso;Marzo;2022;725,27;793,33;-68,06;-0,0938
+Guillermo Lasso;Abril;2022;728,68;793,33;-64,66;-0,0887
+Guillermo Lasso;Mayo;2022;735,15;793,33;-58,19;-0,0792
+Guillermo Lasso;Junio;2022;751,04;793,33;-42,3;-5,63%
+Guillermo Lasso;Julio;2022;753,62;793,33;-39,71;-5,27%
