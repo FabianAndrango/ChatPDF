@@ -11,10 +11,11 @@ from dotenv import load_dotenv # carga variables de entorno desde .env
 import csv # manejo de archivos csv
 import chardet # detección de codificación de archivos
 import io # manejo de flujos de datos en memoria
+import docx  # manejo de archivos docx
 # ============================================================
 # CONFIGURACIÓN GENERAL
 # ============================================================
-st.set_page_config(page_title="Chat PDF y CSV con Gemini")
+st.set_page_config(page_title="Chat Universal PDF+CSV+DOCX+TXT con Gemini")
 
 # Carga variables de entorno desde .env
 # Aquí se espera GOOGLE_API_KEY=xxxx
@@ -35,26 +36,17 @@ client = chromadb.Client()
 if "collection" not in st.session_state:
     st.session_state.collection = None
 
-if "collection_csv" not in st.session_state:
-    st.session_state.collection_csv = None
+if "file_processed" not in st.session_state:
+    st.session_state.file_processed = False
 
-if "pdf_processed" not in st.session_state:
-    st.session_state.pdf_processed = False
-
-if "csv_processed" not in st.session_state:
-    st.session_state.csv_processed = False
-
-if "pdf_hash" not in st.session_state:
-    st.session_state.pdf_hash = None
-
-if "csv_hash" not in st.session_state:
-    st.session_state.csv_hash = None
+if "file_hash" not in st.session_state:
+    st.session_state.file_hash = None
 
 
 # ============================================================
 # FUNCIONES
 # ============================================================
-def hash_pdf(file) -> str:
+def hash_file(file) -> str:
     return hashlib.sha256(file.getvalue()).hexdigest()
 
 def extract_text_from_pdf(pdf_file):
@@ -110,7 +102,57 @@ def extraxt_text_from_csv(file):
         text += f"Fila {i+1}: {line}\n"
 
     return text
+def extract_text_from_docx(file):
+    """
+    Extraer texto de un archivo DOCX.
+    Devuelve:
+        Texto completo extraído del DOCX.
+    """
+    text = ""
+    # Leer el archivo DOCX
+    doc = docx.Document(file)
+    for i, para in enumerate(doc.paragraphs):
+        if para.text.strip():  # Evitar párrafos vacíos
+         text += f"[Párrafo {i+1}] {para.text}\n"
+    return text
 
+def extract_text_from_txt(file):
+    """
+    Extraer texto de un archivo TXT.
+
+    Devuelve:
+        Texto completo extraído del TXT.
+    """
+    text = ""
+    #Leer el archivo TXT
+    raw_data = file.read()
+
+    # Revisar la codificación del archivo
+    enconding_result = chardet.detect(raw_data)
+    enconding = enconding_result['encoding']
+    # Decodificar el contenido
+    text = raw_data.decode(enconding)
+
+    return text
+
+def get_text_dispatch(uplaoded_file):
+    """
+    Función despachadora para extraer texto según el tipo de archivo.
+    """
+    file_type = uplaoded_file.name.split(".")[-1].lower() # Obtener extensión del archivo
+    uplaoded_file.seek(0)  # Asegurarse de que el puntero del archivo esté al inicio    
+    if file_type == "pdf":
+        return extract_text_from_pdf(uplaoded_file)
+    elif file_type == "csv":
+        return extraxt_text_from_csv(uplaoded_file)
+    elif file_type == "docx":
+        return extract_text_from_docx(uplaoded_file)
+    elif file_type == "txt":
+        return extract_text_from_txt(uplaoded_file)
+    else:
+        raise ValueError("Tipo de archivo no soportado.")
+
+    
 
 def chunk_text(text):
     """
@@ -189,9 +231,9 @@ def create_chroma_collection(chunks):
     # ------------------------------
     # 1️⃣ Borrado defensivo
     # ------------------------------
-    # Si ya existe una colección con el mismo nombre ("pdf_rag"),
+    # Si ya existe una colección con el mismo nombre ("file_rag"),
     try:
-        client.delete_collection("pdf_rag")
+        client.delete_collection("file_rag")
     except:
         # Si la colección no existe, Chroma lanza error.
         # Lo ignoramos porque es un caso esperado.
@@ -204,11 +246,14 @@ def create_chroma_collection(chunks):
     # - una tabla de documentos
     # - un índice vectorial
     # - espacio para metadatos
-    collection = client.create_collection(name="pdf_rag")
+    collection = client.create_collection(name="file_rag")
 
     # ------------------------------
     # 3️⃣ Separar texto de metadata
     # ------------------------------
+    if not chunks:
+        return None
+
     # Extraemos SOLO el contenido textual de cada chunk.
     # Esto es lo que se convertirá en embeddings.
     texts = [c["content"] for c in chunks]
@@ -254,87 +299,6 @@ def create_chroma_collection(chunks):
     # - recibir queries (preguntas)
     # - devolver chunks relevantes
     return collection
-
-def create_chroma_collection_csv(chunks):
-    """
-    Crea una colección nueva en ChromaDB a partir de los chunks generados.
-
-    Cada chunk se almacena junto con:
-    - su embedding (vector numérico)
-    - su texto original
-    - metadata útil
-    """
-
-    # ------------------------------
-    # 1️⃣ Borrado defensivo
-    # ------------------------------
-    # Si ya existe una colección con el mismo nombre ("csv_rag"),
-    try:
-        client.delete_collection("csv_rag")
-    except:
-        # Si la colección no existe, Chroma lanza error.
-        # Lo ignoramos porque es un caso esperado.
-        pass
-
-    # ------------------------------
-    # 2️⃣ Crear colección nueva
-    # ------------------------------
-    # Aquí Chroma crea:
-    # - una tabla de documentos
-    # - un índice vectorial
-    # - espacio para metadatos
-    collection = client.create_collection(name="csv_rag")
-
-    # ------------------------------
-    # 3️⃣ Separar texto de metadata
-    # ------------------------------
-    # Extraemos SOLO el contenido textual de cada chunk.
-    # Esto es lo que se convertirá en embeddings.
-    texts = [c["content"] for c in chunks]
-
-    # ------------------------------
-    # 4️⃣ Generar embeddings
-    # ------------------------------
-    # El modelo de SentenceTransformers convierte cada texto
-    # en un vector numérico.
-    #
-    # Cada vector representa el significado del chunk.
-    embeddings = EMBEDDING_MODEL.encode(texts)
-
-    # ------------------------------
-    # 5️⃣ Insertar datos en Chroma
-    # ------------------------------
-    collection.add(
-        # Texto original del chunk
-        documents=texts,
-
-        # Vectores que permiten búsqueda semántica
-        embeddings=embeddings.tolist(),
-
-        # IDs únicos
-        # Sirven para identificar cada chunk internamente
-        ids=[c["id"] for c in chunks],
-
-        # Metadata asociada a cada chunk
-        metadatas=[
-            {
-                "chunk_index": i,         # Orden del chunk
-                "start_index": c["start_index"],  # Posición en el texto original
-                "chunk_size": c["size"]   # Tamaño real del fragmento
-            }
-            for i, c in enumerate(chunks)
-        ]
-    )
-
-    # ------------------------------
-    # 6️⃣ Devolver colección lista
-    # ------------------------------
-    # La colección ya puede:
-    # - recibir queries (preguntas)
-    # - devolver chunks relevantes
-    return collection
-
-
 
 def retrieve_context(collection, query, k=4):
     """
@@ -373,108 +337,50 @@ Pregunta:
     return response.text
 
 # ============================================================
-# INTERFAZ
+# INTERFAZ DE USUARIO (Simplificada)
 # ============================================================
 
-st.title("📄 Chat con PDF y CSV + ChromaDB + Gemini")
+st.title("📄 Chat Multi-Documento con IA + Gemini")
 
-uploaded_pdf = st.file_uploader("Sube un PDF", type="pdf")
-uploaded_csv = st.file_uploader("Sube un CSV", type="csv")
+uploaded_file = st.file_uploader("Sube un tu archivo aquí", type=["pdf","csv","docx","txt"])
 
-# 🔄 Detectar cambio de PDF y resetear estado
-if uploaded_pdf:
-    current_hash = hash_pdf(uploaded_pdf)
+# 🔄 Detectar cambio del file y resetear estado
+if uploaded_file:
+    current_hash = hash_file(uploaded_file)
 
-    if st.session_state.pdf_hash != current_hash:
-        st.session_state.pdf_hash = current_hash
-        st.session_state.pdf_processed = False
+    if st.session_state.file_hash != current_hash:
+        st.session_state.file_hash = current_hash
+        st.session_state.file_processed = False
         st.session_state.collection = None
 
-# 🔄 Detectar cambio de CSV y resetear estado
-if uploaded_csv:
-    current_hash = hash_pdf(uploaded_csv)
-
-    if st.session_state.csv_hash != current_hash:
-        st.session_state.csv_hash = current_hash
-        st.session_state.csv_processed = False
-        st.session_state.collection_csv = None
-
-
 # ------------------------------
-# BOTÓN PROCESAR PDF
+# BOTÓN PROCESAR FILE
 # ------------------------------
-if uploaded_pdf and not st.session_state.pdf_processed:
-    if st.button("📥 Procesar PDF"):
-        with st.spinner("Procesando PDF..."):
-            text = extract_text_from_pdf(uploaded_pdf)
+if uploaded_file and not st.session_state.file_processed:
+    if st.button("📥 Procesar File"):
+        with st.spinner("Procesando Archivo..."):
+            #Determinar el tipo de archivo y extraer texto 
+            text = get_text_dispatch(uploaded_file)
+            if not text:
+                st.error("No se pudo extraer texto del archivo.")
             chunks = chunk_text(text)
             st.session_state.collection = create_chroma_collection(chunks)
-            st.session_state.pdf_processed = True
+            st.session_state.file_processed = True
 
-        st.success(f"PDF procesado ✅ ({len(chunks)} fragmentos)")
-
-# ------------------------------
-# BOTÓN PROCESAR CSV
-# ------------------------------
-if uploaded_csv and not st.session_state.csv_processed:
-    if st.button("📥 Procesar CSV"):
-        with st.spinner("Procesando CSV..."):
-            text = extraxt_text_from_csv(uploaded_csv)
-            chunks = chunk_text(text)
-            st.session_state.collection_csv = create_chroma_collection_csv(chunks)
-            st.session_state.csv_processed = True
-
-        st.success(f"CSV procesado ✅ ({len(chunks)} fragmentos)")
+        st.success(f" procesado ✅ ({len(chunks)} fragmentos)")
 
 # ------------------------------
 # SECCIÓN DE PREGUNTAS
 # ------------------------------
-if st.session_state.pdf_processed and st.session_state.collection:
+if st.session_state.file_processed and st.session_state.collection:
     st.divider()
     st.subheader("❓ Pregunta al documento")
 
-    question = st.text_input("Escribe tu pregunta",key="pdf_query")
+    question = st.text_input("Escribe tu pregunta")
 
-    if st.button("🤖 Preguntar",key="pdf_btn") and question:
+    if st.button("🤖 Preguntar") and question:
         with st.spinner("Buscando respuesta..."):
             results = retrieve_context(st.session_state.collection, question)
-
-            # Unimos los documentos para Gemini
-            context_text = "\n\n".join(results["documents"][0])
-
-            answer = ask_gemini(context_text, question)
-
-        st.subheader("🤖 Respuesta")
-        st.write(answer)
-
-        # ------------------------------
-        # DETALLE DEL CONTEXTO USADO
-        # ------------------------------
-        with st.expander("📚 Contexto usado (detallado)"):
-            for i, (doc, meta) in enumerate(
-                zip(results["documents"][0], results["metadatas"][0])
-            ):
-                st.markdown(f"""
-**Chunk #{meta['chunk_index']}**
-- 📍 Inicio en texto: `{meta['start_index']}`
-- 📏 Tamaño: `{meta['chunk_size']}` caracteres
-
-```text
-{doc}
-""")
-                
-# ------------------------------
-# SECCIÓN DE PREGUNTAS CSV
-# ------------------------------
-if st.session_state.csv_processed and st.session_state.collection_csv:
-    st.divider()
-    st.subheader("❓ Pregunta al documento")
-
-    question = st.text_input("Escribe tu pregunta",key="csv_query")
-
-    if st.button("🤖 Preguntar",key="csv_btn") and question:
-        with st.spinner("Buscando respuesta..."):
-            results = retrieve_context(st.session_state.collection_csv, question)
 
             # Unimos los documentos para Gemini
             context_text = "\n\n".join(results["documents"][0])
